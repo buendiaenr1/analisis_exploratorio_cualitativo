@@ -50,5 +50,5 @@ Mientras que la máquina (aec.py) cuenta palabras y detecta temas generales, la 
 cod.py sirve para proteger y organizar tu pensamiento analítico humano. Te obliga a leer con calma, a enfrentar el texto, a asignarle significado (codificar) y a reflexionar sobre ese significado (memos). Es la herramienta que garantiza que tu tesis no sea solo un reporte estadístico, sino una interpretación hermenéutica profunda.
 En resumen: cod.py es tu asistente de laboratorio que te limpia el texto, te pasa las "muestras" (párrafos) una por una, y te guarda meticulosamente todas las anotaciones que haces en tu cuaderno de campo.
 
-para correr la app usar:    streamlit run cod.py
+# para correr la app usar:    streamlit run cod.py
 
