@@ -1,5 +1,7 @@
 
 # Análisis exploratorio cualitativo
+
+# para correr aec.py usar:     python aec.py
 # para correr cod.py usar:     streamlit run cod.py
 
 Imagina que aec.py (Análisis Exploratorio Cualitativo) es como un dron que sobrevuela un bosque.
