@@ -30,3 +30,25 @@ Triangulación: En tu tesis puedes decir: "El análisis computacional (Figura 1)
 
 # analisis_exploratorio_cualitativo
 En resumen: aec.py es tu asistente robástico que hace el trabajo sucio de contar, agrupar y medir el tono general, para que tú puedas dedicar tu cerebro humano a lo que realmente importa: interpretar el significado profundo.
+
+## Codificar con cod.py
+Si aec.py era el dron que te daba una foto aérea del bosque (análisis macro), cod.py es tú, el explorador, caminando por el bosque con una lupa y un cuaderno de campo (análisis micro).
+En palabras simples, cod.py es tu mesa de trabajo digital y cuaderno de notas para hacer el trabajo profundo, lento y humano de la investigación cualitativa: la codificación y la interpretación.
+Aquí tienes sus 4 "superpoderes" explicados de forma sencilla:
+1. 🧩 El Reconstructor de Textos (Lectura limpia)
+Los PDFs son terribles para leer en pantalla porque cortan las oraciones a la mitad con saltos de línea invisibles. cod.py lee el PDF, "arregla" esos saltos de línea y te presenta el texto en bloques o párrafos coherentes. Así puedes leer una idea completa sin que se corte a la mitad.
+2. 🏷️ El Marcador de Categorías (Codificación)
+En lugar de tener que imprimir 500 páginas y usar marcadores de colores de neón, la app te muestra un párrafo y te da un espacio para ponerle Códigos (etiquetas).
+Ejemplo: Lees un párrafo donde un profesor dice que no puede desconectarse del correo, y le pones los códigos: difusion_fronteras, burnout, presion_digital.
+3. 📝 El Diario de Campo Digital (Memorándums / Memos)
+Esta es la función más importante para un cualitativista. Junto a cada párrafo, tienes un espacio para escribir Notas o Memos. Aquí es donde va tu cerebro: tus reflexiones, tus dudas, las conexiones con tu marco teórico o tus ideas brillantes que te dan a las 2 de la mañana.
+Ejemplo: En el memo escribes: "Esto conecta con la teoría de la colonización del hogar de X autor. El espacio doméstico ya no es refugio."
+4. 📦 La Caja de Exportación (Organización final)
+Cuando terminas de leer y codificar, la app toma todo tu trabajo (el texto original + tus códigos + tus memos) y lo escupe en un archivo CSV (para Excel) o JSON. Ya no tienes un caos de notas sueltas, tienes una base de datos estructurada lista para buscar patrones, hacer matrices o escribir tu capítulo de resultados.
+¿Para qué sirve esto en tu investigación? (El valor metodológico)
+Mientras que la máquina (aec.py) cuenta palabras y detecta temas generales, la máquina no entiende el dolor, la ironía, el contexto cultural ni los silencios.
+cod.py sirve para proteger y organizar tu pensamiento analítico humano. Te obliga a leer con calma, a enfrentar el texto, a asignarle significado (codificar) y a reflexionar sobre ese significado (memos). Es la herramienta que garantiza que tu tesis no sea solo un reporte estadístico, sino una interpretación hermenéutica profunda.
+En resumen: cod.py es tu asistente de laboratorio que te limpia el texto, te pasa las "muestras" (párrafos) una por una, y te guarda meticulosamente todas las anotaciones que haces en tu cuaderno de campo.
+
+para correr la app usar:    streamlit run cod.py
+
