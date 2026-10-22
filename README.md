@@ -54,3 +54,31 @@ En resumen: cod.py es tu asistente de laboratorio que te limpia el texto, te pas
 
 # para correr la app usar:    streamlit run cod.py
 
+# Baremación
+Sí, el código en Python implementa de manera fiel y exacta la metodología descrita en el texto.
+El script traduce a código los "Fundamentos de Baremación y Análisis de Instrumentos" paso a paso, aplicando la lógica de la Teoría Clásica de los Tests (TCT) sobre una escala tipo Likert tratada como variable de intervalo, tal como se explica en la transcripción.
+A continuación, te detallo cómo el código refleja cada una de las secciones del texto:
+1. Correspondencia Paso a Paso
+Preparación (Simulación): El texto menciona trabajar con una "base de práctica de doscientos docentes" y la escala TSES de 12 ítems (agrupados en 3 factores, escala de 1 a 9). El código configura exactamente este escenario usando numpy y pandas (n_docentes = 200, 12 columnas, valores aleatorios del 1 al 9).
+Paso 1: Recodificar ítems inversos: El texto explica la fórmula (máximo + mínimo) - respuesta. En una escala de 1 a 9, esto es 10 - respuesta. El código lo implementa correctamente (10 - df['item2_original']). Nota didáctica: Aunque el texto aclara que la escala TSES original no tiene ítems inversos, el código simula uno (el ítem 2) para dejar constancia de cómo se programa este paso, lo cual es una excelente práctica académica.
+Paso 2: Confiabilidad (Alfa de Cronbach): El código incluye una función personalizada (calcular_alpha_cronbach) que aplica la fórmula matemática estándar del Alfa de Cronbach para los tres factores, cumpliendo con el requisito de confirmar la consistencia interna antes de sumar.
+Paso 3: Puntaje Bruto: Tal como indica el texto ("Sumas los cuatro ítems de cada factor"), el código usa .sum(axis=1) para generar las columnas de puntajes brutos.
+Pasos 4 y 5: Construir la norma, Zeta y T: El código calcula la media (mean()) y la desviación estándar (std()) de la muestra normativa. Luego aplica las fórmulas exactas mencionadas en el texto:
+Zeta: (Bruto - Media) / Desviación
+Puntuación T: 50 + (10 * Zeta)
+Paso 6: Percentil: Utiliza scipy.stats.percentileofscore, que es la forma estándar en Python para calcular el rango percentil (el porcentaje de personas que quedaron por debajo de un puntaje).
+2. El Caso Práctico (La maestra con puntaje 35)
+El texto dedica una sección a interpretar el caso de una maestra que obtiene 35 puntos en Estrategias de Instrucción. El código tiene un bloque final (CASO PRÁCTICO DEL TEXTO) dedicado exclusivamente a esto:
+Toma el puntaje bruto de 35.
+Calcula su Puntuación T y su Percentil usando los parámetros de la muestra simulada.
+Imprime una conclusión interpretativa que coincide con el mensaje del texto: "La maestra muestra una autoeficacia alta... en comparación con su grupo de referencia".
+3. Pequeñas diferencias (Adaptaciones propias de la programación)
+Hay dos detalles menores donde el código se adapta a la ejecución en Python, sin perder el rigor metodológico:
+Valores dinámicos vs. valores del texto: El texto menciona cifras específicas para la muestra (ej. Media = 29.1, Desviación = 4.7). Como el código genera los datos aleatoriamente (aunque con una semilla fija np.random.seed(42) para que sea reproducible), los valores exactos de la media y la desviación estándar variarán ligeramente. Sin embargo, la lógica matemática es idéntica.
+Enfoque en el Factor 1: El código aplica la transformación completa a Z, T y Percentil principalmente al Factor 1 (Estrategias) para la vista previa y el caso práctico. Esto es coherente con el guion del texto, que usa ese factor para explicar el ejemplo de la maestra de los 35 puntos.
+Conclusión
+Como investigador a nivel de doctorado que busca construir y validar instrumentos de medición, puedes tener la certeza de que este script es una plantilla metodológicamente sólida. Captura la esencia de la baremación normativa: demostrar que un puntaje crudo (35/36) solo cobra significado estadístico y práctico cuando se contrasta contra la distribución de una muestra de referencia mediante Puntuaciones T y Percentiles.
+
+# para correr usar: python barem.py
+
+recuerde modificar para leer un archivo, este codigo solo simula las mediciones: ver video https://youtu.be/9WpN88VvF2s 
