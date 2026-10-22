@@ -3,6 +3,7 @@
 
 # para correr aec.py usar:     python aec.py
 # para correr cod.py usar:     streamlit run cod.py
+# para correr barem.py usar:   python barem.py (modificar codigo para leer archivo)
 
 Imagina que aec.py (Análisis Exploratorio Cualitativo) es como un dron que sobrevuela un bosque.
 Mientras que tú (con cod.py) eres el explorador caminando entre los árboles, leyendo cada hoja con una lupa (análisis micro), aec.py es el dron que te da una foto aérea de todo el bosque (análisis macro) en cuestión de segundos.
