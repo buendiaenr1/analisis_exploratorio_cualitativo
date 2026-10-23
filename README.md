@@ -95,7 +95,7 @@ data original = (
     'docente': ['Docente 1', ...],
     'años experiencia': [5, 20, 2, 15, 25, 8],                                       Variable Cuantitativa
     'estrategia adaptacion': ['Integracion Real', 'Cumplimiento Aparente', ...]      Variable Cualitativa
-)}$
+) }}$
 
 Qué hace: Crea una tabla con datos simulados.
 Significado metodológico: Representa el estado de tus datos después de usar tu herramienta cod.py. Tienes una variable numérica (años_experiencia) y una variable de texto (estrategia_adaptacion) que son las categorías o temas que tú mismo descubriste en las entrevistas.
