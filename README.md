@@ -82,3 +82,56 @@ Dado que estás involucrado en la construcción de instrumentos de medición a n
 # para correr usar: python barem1.py
 
 recuerde modificar para leer un archivo, este codigo solo simula las mediciones: ver video https://youtu.be/9WpN88VvF2s 
+
+# Conversión  cualitativo a cuantitativo
+
+Este código es un ejemplo perfecto y práctico de Métodos Mixtos Formales (específicamente, la estrategia de Conversión de datos cualitativos en cuantitativos, mencionada en la sección 6.4 del documento).
+Su objetivo es tomar categorías que surgieron de tu análisis cualitativo (palabras) y transformarlas en números (0 y 1) para poder usarlas en una fórmula estadística y ver si predicen un resultado numérico.
+A continuación, te explico el código paso a paso, desglosando qué hace la computadora y qué significa metodológicamente:
+\textolor{blue}{1. Sección 0: Los Datos Originales
+python
+data_original = {
+    'docente': ['Docente 1', ...],
+    'años_experiencia': [5, 20, 2, 15, 25, 8], # Variable Cuantitativa
+    'estrategia_adaptacion': ['Integracion_Real', 'Cumplimiento_Aparente', ...] # Variable Cualitativa
+}}
+Qué hace: Crea una tabla con datos simulados.
+Significado metodológico: Representa el estado de tus datos después de usar tu herramienta cod.py. Tienes una variable numérica (años_experiencia) y una variable de texto (estrategia_adaptacion) que son las categorías o temas que tú mismo descubriste en las entrevistas.
+2. Sección 1: La Conversión (Variables Dummy)
+python
+df_dummies = pd.get_dummies(df_original['estrategia_adaptacion'], prefix='cod', drop_first=False, dtype=int)
+Qué hace: Toma la columna de texto y crea una columna nueva por cada categoría única que encuentra (cod_Cumplimiento_Aparente, cod_Integracion_Real, cod_Resistencia_Declarada). Si el docente pertenece a esa categoría, pone un 1; si no, pone un 0. El dtype=int asegura que sean números enteros (solucionando el error que vimos antes).
+Significado metodológico: Esto se llama codificación en variables dummy (o indicadoras). Es el puente que permite que la estadística "entienda" las categorías cualitativas. La estadística no puede multiplicar la palabra "Resistencia", pero sí puede multiplicar un 1 o un 0.
+3. Sección 2: Integración en el Modelo (El corazón del Método Mixto)
+python
+X = df_mixto[['cod_Cumplimiento_Aparente', 'cod_Resistencia_Declarada']]
+y = df_mixto['años_experiencia']
+X_const = sm.add_constant(X) 
+modelo = sm.OLS(y, X_const).fit()
+Qué hace: Configura una Regresión Lineal Ordinaria (OLS).
+y es lo que queremos predecir (años de experiencia).
+X son los predictores. Nota crucial: Observa que solo incluimos dos de las tres columnas dummy.
+Significado metodológico (La Categoría de Referencia): Al dejar fuera cod_Integracion_Real de la variable X, la estamos convirtiendo automáticamente en el Grupo Base o de Referencia. El modelo estadístico no calculará un número para "Integración Real"; en su lugar, calculará cuántos años de experiencia más o menos tienen los otros grupos en comparación con este grupo base. Es como establecer el "nivel del mar" (cero) para medir la altura de las montañas.
+4. Sección 3: Extracción e Interpretación Dinámica
+python
+coef_cump = modelo.params['cod_Cumplimiento_Aparente']
+pval_cump = modelo.pvalues['cod_Cumplimiento_Aparente']
+promedio_base = df_original[df_original['estrategia_adaptacion'] == 'Integracion_Real']['años_experiencia'].mean()
+Qué hace: Saca los números crudos del modelo: los coeficientes (el efecto), los p-valores (la significancia) y calcula el promedio real del grupo base para tener contexto.
+Significado metodológico: Traduce la "caja negra" de la estadística a lenguaje humano.
+El coeficiente te dice la magnitud de la diferencia (ej. "+12.5 años").
+El p-valor te dice si puedes confiar en ese número o si probablemente sea solo azar (en ciencias sociales, usualmente buscamos p < 0.05).
+5. Sección 4: La Conclusión (Lista para tu Tesis)
+python
+
+1
+Qué hace: Usa "f-strings" de Python para insertar los números calculados directamente en una frase con sentido.
+Significado metodológico: Esto te ahorra tener que interpretar los números manualmente y evita errores humanos. Genera una frase de resultado lista para ser copiada, adaptada y defendida en tu capítulo de "Resultados Mixtos" o "Discusión".
+💡 ¿Cómo leer el resultado que te dará este código?
+Cuando lo ejecutes, verás algo como esto:
+Coeficiente de 'Cumplimiento Aparente': 12.50 años (p-valor: 0.182)
+Grupo de referencia (Base): 'Integracion_Real' (Promedio: 5.0 años)
+Tu interpretación como investigador debe ser:
+"Los docentes que mostraron una 'Integración Real' tienen en promedio 5 años de experiencia. En comparación con ellos, los docentes que mostraron un 'Cumplimiento Aparente' tienen 12.5 años más de experiencia (es decir, promedian 17.5 años). Sin embargo, el p-valor de 0.182 es mayor a 0.05, lo que indica que, en esta muestra tan pequeña (n=6), esta diferencia no es estadísticamente significativa y podría deberse al azar. Se requiere una muestra mayor para confirmar esta tendencia."
+¿Por qué este código es una herramienta poderosa para tu investigación?
+Porque materializa exactamente lo que pide el documento en el Nivel 6 (Métodos Mixtos): no te limitas a decir "algunos docentes se resisten y otros se integran". Ahora puedes afirmar (o refutar) con rigor estadístico si esa resistencia o integración está asociada sistemáticamente con variables como la antigüedad, la edad, el salario o el tamaño de la escuela. Eso eleva tu tesis de un nivel descriptivo a un nivel explicativo/predictivo.
