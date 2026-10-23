@@ -134,7 +134,8 @@ El p-valor te dice si puedes confiar en ese número o si probablemente sea solo 
 5. Sección 4: La Conclusión (Lista para tu Tesis)
 python
 
-1
+                print(f"  • Los docentes con 'Cumplimiento Aparente' tienen, en promedio, {abs(coef_cump):.1f} años {'más' if coef_cump > 0 else 'menos'} de experiencia.")
+
 Qué hace: Usa "f-strings" de Python para insertar los números calculados directamente en una frase con sentido.
 Significado metodológico: Esto te ahorra tener que interpretar los números manualmente y evita errores humanos. Genera una frase de resultado lista para ser copiada, adaptada y defendida en tu capítulo de "Resultados Mixtos" o "Discusión".
 💡 ¿Cómo leer el resultado que te dará este código?
