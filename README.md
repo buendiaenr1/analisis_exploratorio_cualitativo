@@ -103,7 +103,9 @@ Qué hace: Crea una tabla con datos simulados.
 Significado metodológico: Representa el estado de tus datos después de usar tu herramienta cod.py. Tienes una variable numérica (años_experiencia) y una variable de texto (estrategia_adaptacion) que son las categorías o temas que tú mismo descubriste en las entrevistas.
 2. Sección 1: La Conversión (Variables Dummy)
 python
-df_dummies = pd.get_dummies(df_original['estrategia_adaptacion'], prefix='cod', drop_first=False, dtype=int)
+
+                df_dummies = pd.get_dummies(df_original['estrategia_adaptacion'], prefix='cod', drop_first=False, dtype=int)
+
 Qué hace: Toma la columna de texto y crea una columna nueva por cada categoría única que encuentra (cod_Cumplimiento_Aparente, cod_Integracion_Real, cod_Resistencia_Declarada). Si el docente pertenece a esa categoría, pone un 1; si no, pone un 0. El dtype=int asegura que sean números enteros (solucionando el error que vimos antes).
 Significado metodológico: Esto se llama codificación en variables dummy (o indicadoras). Es el puente que permite que la estadística "entienda" las categorías cualitativas. La estadística no puede multiplicar la palabra "Resistencia", pero sí puede multiplicar un 1 o un 0.
 3. Sección 2: Integración en el Modelo (El corazón del Método Mixto)
