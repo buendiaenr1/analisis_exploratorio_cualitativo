@@ -88,13 +88,15 @@ recuerde modificar para leer un archivo, este codigo solo simula las mediciones:
 Este código es un ejemplo perfecto y práctico de Métodos Mixtos Formales (específicamente, la estrategia de Conversión de datos cualitativos en cuantitativos, mencionada en la sección 6.4 del documento).
 Su objetivo es tomar categorías que surgieron de tu análisis cualitativo (palabras) y transformarlas en números (0 y 1) para poder usarlas en una fórmula estadística y ver si predicen un resultado numérico.
 A continuación, te explico el código paso a paso, desglosando qué hace la computadora y qué significa metodológicamente:
-\textolor{blue}{1. Sección 0: Los Datos Originales
+
+\textcolor{blue}{ 1. Sección 0: Los Datos Originales
 python
 data_original = {
     'docente': ['Docente 1', ...],
     'años_experiencia': [5, 20, 2, 15, 25, 8], # Variable Cuantitativa
     'estrategia_adaptacion': ['Integracion_Real', 'Cumplimiento_Aparente', ...] # Variable Cualitativa
 }}
+
 Qué hace: Crea una tabla con datos simulados.
 Significado metodológico: Representa el estado de tus datos después de usar tu herramienta cod.py. Tienes una variable numérica (años_experiencia) y una variable de texto (estrategia_adaptacion) que son las categorías o temas que tú mismo descubriste en las entrevistas.
 2. Sección 1: La Conversión (Variables Dummy)
