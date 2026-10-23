@@ -89,10 +89,10 @@ Este código es un ejemplo perfecto y práctico de Métodos Mixtos Formales (esp
 Su objetivo es tomar categorías que surgieron de tu análisis cualitativo (palabras) y transformarlas en números (0 y 1) para poder usarlas en una fórmula estadística y ver si predicen un resultado numérico.
 A continuación, te explico el código paso a paso, desglosando qué hace la computadora y qué significa metodológicamente:
 
-$\color{blue}{\text{1. Sección 0: Los Datos Originales
-python
-data original = (
-    'docente': ['Docente 1', ...],
+$\color{blue}{\text{1. Sección 0:\\ Los Datos Originales
+python\\
+data original = (\\
+    'docente': ['Docente 1', ...],\\
     'años experiencia': [5, 20, 2, 15, 25, 8],                                       Variable Cuantitativa
     'estrategia adaptacion': ['Integracion Real', 'Cumplimiento Aparente', ...]      Variable Cualitativa
 ) }}$
