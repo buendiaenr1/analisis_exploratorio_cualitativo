@@ -3,7 +3,8 @@
 
 # para correr aec.py usar:     python aec.py
 # para correr cod.py usar:     streamlit run cod.py
-# para correr conversion.py usar:   python conversion.py (educuando codigo a problema particular)
+# para correr conversion.py usar:   python conversion.py 
+                                    ( educuando codigo a problema particular)
                                     ( se pueden usar los codigos de cod.py, para mejorar)
 # para correr barem1.py usar:   python barem1.py (modificar codigo para leer archivo)
 
