@@ -110,19 +110,23 @@ Qué hace: Toma la columna de texto y crea una columna nueva por cada categoría
 Significado metodológico: Esto se llama codificación en variables dummy (o indicadoras). Es el puente que permite que la estadística "entienda" las categorías cualitativas. La estadística no puede multiplicar la palabra "Resistencia", pero sí puede multiplicar un 1 o un 0.
 3. Sección 2: Integración en el Modelo (El corazón del Método Mixto)
 python
-X = df_mixto[['cod_Cumplimiento_Aparente', 'cod_Resistencia_Declarada']]
-y = df_mixto['años_experiencia']
-X_const = sm.add_constant(X) 
-modelo = sm.OLS(y, X_const).fit()
+
+                X = df_mixto[['cod_Cumplimiento_Aparente', 'cod_Resistencia_Declarada']]
+                y = df_mixto['años_experiencia']
+                X_const = sm.add_constant(X) 
+                modelo = sm.OLS(y, X_const).fit()
+
 Qué hace: Configura una Regresión Lineal Ordinaria (OLS).
 y es lo que queremos predecir (años de experiencia).
 X son los predictores. Nota crucial: Observa que solo incluimos dos de las tres columnas dummy.
 Significado metodológico (La Categoría de Referencia): Al dejar fuera cod_Integracion_Real de la variable X, la estamos convirtiendo automáticamente en el Grupo Base o de Referencia. El modelo estadístico no calculará un número para "Integración Real"; en su lugar, calculará cuántos años de experiencia más o menos tienen los otros grupos en comparación con este grupo base. Es como establecer el "nivel del mar" (cero) para medir la altura de las montañas.
 4. Sección 3: Extracción e Interpretación Dinámica
 python
-coef_cump = modelo.params['cod_Cumplimiento_Aparente']
-pval_cump = modelo.pvalues['cod_Cumplimiento_Aparente']
-promedio_base = df_original[df_original['estrategia_adaptacion'] == 'Integracion_Real']['años_experiencia'].mean()
+
+                coef_cump = modelo.params['cod_Cumplimiento_Aparente']
+                pval_cump = modelo.pvalues['cod_Cumplimiento_Aparente']
+                promedio_base = df_original[df_original['estrategia_adaptacion'] == 'Integracion_Real']['años_experiencia'].mean()
+
 Qué hace: Saca los números crudos del modelo: los coeficientes (el efecto), los p-valores (la significancia) y calcula el promedio real del grupo base para tener contexto.
 Significado metodológico: Traduce la "caja negra" de la estadística a lenguaje humano.
 El coeficiente te dice la magnitud de la diferencia (ej. "+12.5 años").
