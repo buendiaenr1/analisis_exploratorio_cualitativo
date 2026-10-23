@@ -91,7 +91,7 @@ A continuación, te explico el código paso a paso, desglosando qué hace la com
 
 $\color{blue}{\text{1. Sección 0: Los Datos Originales
 python
-data_original = {
+data original = {
     'docente': ['Docente 1', ...],
     'años_experiencia': [5, 20, 2, 15, 25, 8], # Variable Cuantitativa
     'estrategia_adaptacion': ['Integracion_Real', 'Cumplimiento_Aparente', ...] # Variable Cualitativa
