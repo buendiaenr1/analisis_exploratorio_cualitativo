@@ -6,6 +6,7 @@
 # para correr conversion.py usar:   python conversion.py 
                                     ( educuando codigo a problema particular)
                                     ( se pueden usar los codigos de cod.py, para mejorar)
+# para correr kappa.py usar:    python kappa.py
 # para correr barem1.py usar:   python barem1.py (modificar codigo para leer archivo)
 
 Imagina que aec.py (Análisis Exploratorio Cualitativo) es como un dron que sobrevuela un bosque.
@@ -151,3 +152,53 @@ Tu interpretación como investigador debe ser:
 "Los docentes que mostraron una 'Integración Real' tienen en promedio 5 años de experiencia. En comparación con ellos, los docentes que mostraron un 'Cumplimiento Aparente' tienen 12.5 años más de experiencia (es decir, promedian 17.5 años). Sin embargo, el p-valor de 0.182 es mayor a 0.05, lo que indica que, en esta muestra tan pequeña (n=6), esta diferencia no es estadísticamente significativa y podría deberse al azar. Se requiere una muestra mayor para confirmar esta tendencia."
 ¿Por qué este código es una herramienta poderosa para tu investigación?
 Porque materializa exactamente lo que pide el documento en el Nivel 6 (Métodos Mixtos): no te limitas a decir "algunos docentes se resisten y otros se integran". Ahora puedes afirmar (o refutar) con rigor estadístico si esa resistencia o integración está asociada sistemáticamente con variables como la antigüedad, la edad, el salario o el tamaño de la escuela. Eso eleva tu tesis de un nivel descriptivo a un nivel explicativo/predictivo.
+
+
+# Kappa de Cohen
+
+python kappa.py
+📂 DATOS SIMULADOS: CODIFICACIÓN A CIEGAS
+----------------------------------------------------------------------
+   entrevista codificador_1_tu codificador_2_par  Acuerdo
+ Entrevista 1       Imposicion        Imposicion     True
+ Entrevista 2       Delegacion        Delegacion     True
+ Entrevista 3     Cumplimiento       Resistencia    False
+ Entrevista 4       Imposicion        Imposicion     True
+ Entrevista 5      Resistencia        Delegacion    False
+ Entrevista 6      Integracion       Integracion     True
+ Entrevista 7       Delegacion        Delegacion     True
+ Entrevista 8     Cumplimiento      Cumplimiento     True
+ Entrevista 9       Imposicion        Imposicion     True
+Entrevista 10      Resistencia       Integracion    False
+----------------------------------------------------------------------
+Acuerdos brutos: 7 de 10 casos.
+
+🛡️ RIGOR CUALITATIVO: TRIANGULACIÓN DE INVESTIGADORES
+============================================================
+Kappa de Cohen calculado: 0.62
+
+📖 INTERPRETACIÓN (Criterios de Landis & Koch):
+• Sustancial (Excelente para tesis y artículos Q1/Q2)
+
+💡 Acción Metodológica (Nivel 5): Si el Kappa es bajo, no se publica.
+Se exige revisar el libro de códigos, redefinir las categorías ambiguas
+y volver a codificar hasta garantizar la 'Confirmabilidad' del dato.
+
+🔍 DIAGNÓSTICO DE DISCREPANCIAS (Matriz de Cruce)
+----------------------------------------------------------------------
+Filas: Codificador 1 (Tú)  |  Columnas: Codificador 2 (Par)
+Par           Cumplimiento  Delegacion  Imposicion  Integracion  Resistencia
+Tú
+Cumplimiento             1           0           0            0            1
+Delegacion               0           2           0            0            0
+Imposicion               0           0           3            0            0
+Integracion              0           0           0            1            0
+Resistencia              0           1           0            1            0
+
+💡 Interpretación de la matriz: Los valores en la diagonal principal (de arriba-izquierda
+a abajo-derecha) son acuerdos. Los valores FUERA de esa diagonal son las categorías
+que se están confundiendo (ej. Tú codificaste 'Resistencia' pero tu par 'Delegacion').
+Ahí es donde debes intervenir tu libro de códigos antes de continuar.
+
+Propósito: El documento exige que el rigor cualitativo sea auditable. Si tú y un par (o auditor externo) codificaron las mismas entrevistas de forma independiente, debes calcular matemáticamente si hubo acuerdo real o si el sesgo de uno contaminó los datos.
+
