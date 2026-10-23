@@ -140,8 +140,10 @@ Qué hace: Usa "f-strings" de Python para insertar los números calculados direc
 Significado metodológico: Esto te ahorra tener que interpretar los números manualmente y evita errores humanos. Genera una frase de resultado lista para ser copiada, adaptada y defendida en tu capítulo de "Resultados Mixtos" o "Discusión".
 💡 ¿Cómo leer el resultado que te dará este código?
 Cuando lo ejecutes, verás algo como esto:
-Coeficiente de 'Cumplimiento Aparente': 12.50 años (p-valor: 0.182)
-Grupo de referencia (Base): 'Integracion_Real' (Promedio: 5.0 años)
+
+                Coeficiente de 'Cumplimiento Aparente': 12.50 años (p-valor: 0.182)
+                Grupo de referencia (Base): 'Integracion_Real' (Promedio: 5.0 años)
+
 Tu interpretación como investigador debe ser:
 "Los docentes que mostraron una 'Integración Real' tienen en promedio 5 años de experiencia. En comparación con ellos, los docentes que mostraron un 'Cumplimiento Aparente' tienen 12.5 años más de experiencia (es decir, promedian 17.5 años). Sin embargo, el p-valor de 0.182 es mayor a 0.05, lo que indica que, en esta muestra tan pequeña (n=6), esta diferencia no es estadísticamente significativa y podría deberse al azar. Se requiere una muestra mayor para confirmar esta tendencia."
 ¿Por qué este código es una herramienta poderosa para tu investigación?
