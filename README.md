@@ -89,7 +89,15 @@ Este código es un ejemplo perfecto y práctico de Métodos Mixtos Formales (esp
 Su objetivo es tomar categorías que surgieron de tu análisis cualitativo (palabras) y transformarlas en números (0 y 1) para poder usarlas en una fórmula estadística y ver si predicen un resultado numérico.
 A continuación, te explico el código paso a paso, desglosando qué hace la computadora y qué significa metodológicamente:
 
-````markdown ```latex \section*{Sección 0: Los Datos Originales} \begin{lstlisting}[caption={Datos originales del análisis cualitativo}] data_original = { 'docente': ['Docente 1', 'Docente 2', 'Docente 3', 'Docente 4', 'Docente 5', 'Docente 6'], 'años_experiencia': [5, 20, 2, 15, 25, 8], 'estrategia_adaptacion': ['Integracion_Real', 'Cumplimiento_Aparente', 'Integracion_Real', 'Cumplimiento_Aparente', 'Resistencia_Declarada', 'Integracion_Real'] } \end{lstlisting}
+                data_original = {
+                    'docente': ['Docente 1', ...],
+                    'años_experiencia': [5, 20, 2, 15, 25, 8], # Variable Cuantitativa
+                    'estrategia_adaptacion': ['Integracion_Real', 'Cumplimiento_Aparente', ...] # Variable Cualitativa
+                }data_original = {
+                    'docente': ['Docente 1', ...],
+                    'años_experiencia': [5, 20, 2, 15, 25, 8], # Variable Cuantitativa
+                    'estrategia_adaptacion': ['Integracion_Real', 'Cumplimiento_Aparente', ...] # Variable Cualitativa
+                }
 
 Qué hace: Crea una tabla con datos simulados.
 Significado metodológico: Representa el estado de tus datos después de usar tu herramienta cod.py. Tienes una variable numérica (años_experiencia) y una variable de texto (estrategia_adaptacion) que son las categorías o temas que tú mismo descubriste en las entrevistas.
