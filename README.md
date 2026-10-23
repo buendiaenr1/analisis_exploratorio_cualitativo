@@ -89,13 +89,64 @@ Este código es un ejemplo perfecto y práctico de Métodos Mixtos Formales (esp
 Su objetivo es tomar categorías que surgieron de tu análisis cualitativo (palabras) y transformarlas en números (0 y 1) para poder usarlas en una fórmula estadística y ver si predicen un resultado numérico.
 A continuación, te explico el código paso a paso, desglosando qué hace la computadora y qué significa metodológicamente:
 
-$\color{blue}{\text{1. Sección 0:\\ Los Datos Originales
-python\\
-data original = (\\
-    'docente': ['Docente 1', ...],\\
-    'años experiencia': [5, 20, 2, 15, 25, 8],                                       Variable Cuantitativa\\
-    'estrategia adaptacion': ['Integracion Real', 'Cumplimiento Aparente', ...]      Variable Cualitativa\\
-) }}$
+% ============================================================
+% CONFIGURACIÓN DEL ESTILO DE CÓDIGO (similar a la imagen)
+% ============================================================
+\definecolor{codegray}{rgb}{0.95, 0.95, 0.95}      % Fondo gris claro
+\definecolor{codeborder}{rgb}{0.85, 0.85, 0.85}    % Borde
+\definecolor{codekeyword}{rgb}{0.0, 0.0, 0.8}      % Azul para keywords
+\definecolor{codestring}{rgb}{0.6, 0.0, 0.0}       % Rojo oscuro para strings
+\definecolor{codecomment}{rgb}{0.0, 0.5, 0.0}      % Verde para comentarios
+\definecolor{codelinenumber}{rgb}{0.5, 0.5, 0.5}   % Gris para números de línea
+
+\lstdefinestyle{pythonstyle}{
+    language=Python,
+    backgroundcolor=\color{codegray},
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{codekeyword}\bfseries,
+    stringstyle=\color{codestring},
+    commentstyle=\color{codecomment}\itshape,
+    numbers=left,
+    numberstyle=\tiny\color{codelinenumber},
+    numbersep=8pt,
+    frame=single,
+    rulecolor=\color{codeborder},
+    framerule=0.5pt,
+    tabsize=4,
+    breaklines=true,
+    breakatwhitespace=false,
+    showstringspaces=false,
+    captionpos=b,
+    xleftmargin=15pt,
+    xrightmargin=5pt,
+    aboveskip=10pt,
+    belowskip=10pt,
+    morekeywords={data\_original, dtype},
+    literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+             {ñ}{{\~n}}1 {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1 {Ñ}{{\~N}}1,
+}
+
+\lstset{style=pythonstyle}
+
+\begin{document}
+
+\section*{Sección 0: Los Datos Originales}
+
+\begin{lstlisting}[caption={Datos originales del análisis cualitativo}, label={lst:datos_originales}]
+data_original = {
+    'docente': ['Docente 1', 'Docente 2', 'Docente 3', 
+                'Docente 4', 'Docente 5', 'Docente 6'],
+    'años_experiencia': [5, 20, 2, 15, 25, 8],  # Variable Cuantitativa
+    'estrategia_adaptacion': ['Integracion_Real', 
+                              'Cumplimiento_Aparente', 
+                              'Integracion_Real', 
+                              'Cumplimiento_Aparente', 
+                              'Resistencia_Declarada', 
+                              'Integracion_Real']  # Variable Cualitativa
+}
+\end{lstlisting}
+
+\end{document}
 
 Qué hace: Crea una tabla con datos simulados.
 Significado metodológico: Representa el estado de tus datos después de usar tu herramienta cod.py. Tienes una variable numérica (años_experiencia) y una variable de texto (estrategia_adaptacion) que son las categorías o temas que tú mismo descubriste en las entrevistas.
